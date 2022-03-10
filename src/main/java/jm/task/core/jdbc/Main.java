@@ -6,8 +6,8 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 
 public class Main {
     private static final UserService userService = new UserServiceImpl();
-    private static final User user1 = new User("Mitroy", "Gopit", (byte) 60);
-    private static final User user2 = new User("Jija", "Top", (byte) 15);
+    private static final User user1 = new User("Vadik", "Gerasimov", (byte) 60);
+    private static final User user2 = new User("Vadik", "Gerasimov", (byte) 60);
     private static final User user3 = new User("Stariy", "Pes", (byte) 126);
     private static final User user4 = new User("Legkiy", "Qyqer", (byte) 76);
 
@@ -27,6 +27,8 @@ public class Main {
         userService.cleanUsersTable();
 
         userService.dropUsersTable();
+
+
     }
 }
 

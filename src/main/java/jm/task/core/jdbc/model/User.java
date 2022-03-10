@@ -21,6 +21,25 @@ public class User {
     public User() {
 
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        User other = (User) obj;
+        if (obj == null || getClass() != obj.getClass()) {
+            return  false;
+        }
+        return (age == other.age && name.equals(other.name) && lastName.equals(other.lastName));
+    }
+    @Override
+    public  int hashCode() {
+        double result = 5;
+        result = result * 7 + age + name.hashCode() + lastName.hashCode();
+        return (int) result;
+    }
+
     @Override
     public String toString() {
         return "User{" +
