@@ -1,12 +1,12 @@
 package jm.task.core.jdbc.model;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Table
+@Entity
+@Table(name = "test")
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
@@ -20,34 +20,6 @@ public class User {
 
     public User() {
 
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        User other = (User) obj;
-        if (obj == null || getClass() != obj.getClass()) {
-            return  false;
-        }
-        return (age == other.age && name.equals(other.name) && lastName.equals(other.lastName));
-    }
-    @Override
-    public  int hashCode() {
-        double result = 5;
-        result = result * 7 + age + name.hashCode() + lastName.hashCode();
-        return (int) result;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", age=" + age +
-                '}';
     }
 
     public User(String name, String lastName, Byte age) {
@@ -75,7 +47,33 @@ public class User {
     public String getLastName() {
         return lastName;
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        User other = (User) obj;
+        if (obj == null || getClass() != obj.getClass()) {
+            return  false;
+        }
+        return (age == other.age && name.equals(other.name) && lastName.equals(other.lastName));
+    }
+    @Override
+    public  int hashCode() {
+        double result = 5;
+        result = result * 7 + age + name.hashCode() + lastName.hashCode();
+        return (int) result;
+    }
 
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", age=" + age +
+                '}';
+    }
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
@@ -87,4 +85,6 @@ public class User {
     public void setAge(Byte age) {
         this.age = age;
     }
+
 }
+
